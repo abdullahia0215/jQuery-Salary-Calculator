@@ -31,5 +31,21 @@ document.addEventListener('DOMContentLoaded', function() {
       <button class="delete-btn">Delete</button>
     `;
 
+    employeesList.appendChild(employeeEntry);
+
+    monthlyCost += annualSalary / 12;
+    totalMonthlyCost.textContent = `Total Monthly Cost: $${monthlyCost.toFixed(2)}`;
+
+    if (monthlyCost > 20000) {
+      totalMonthlyCost.style.backgroundColor = 'red';
+    }
+
+    employeeForm.reset();
+  });
+
+  employeesList.addEventListener('click', function(event) {
+    if (event.target.classList.contains('delete-btn')) {
+      event.target.parentElement.remove();
+    }
   });
 });
